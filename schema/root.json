@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "definitions": {
+    "apiVersion": {
+      "title": "API version type",
+      "type": "number",
+      "minimum": 1
+    }
+  },
+  "properties": {
+    "apiVersion": {
+      "title": "API version of message",
+      "$ref": "#/definitions/apiVersion"
+    }
+  },
+  "required": ["apiVersion"]
+
+}
