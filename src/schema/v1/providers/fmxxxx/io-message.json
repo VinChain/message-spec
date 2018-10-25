@@ -1,6 +1,6 @@
 {
   "title": "Vehicle telemetry data",
-  "allOf": [{"$ref": "root.json"}],
+  "allOf": [{"$ref": "../../root.json"}],
   "properties": {
     "type": {
       "const": "io"

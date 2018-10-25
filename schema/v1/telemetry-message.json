@@ -57,15 +57,15 @@
           "properties": {
             "x": {
               "title": "X-axis magnitude",
-              "$ref": "#/definitions/magnitude"
+              "$ref": "#definitions/magnitude"
             },
             "y": {
               "title": "Y-axis magnitude",
-              "$ref": "#/definitions/magnitude"
+              "$ref": "#definitions/magnitude"
             },
             "z": {
               "title": "Z-axis magnitude",
-              "$ref": "#/definitions/magnitude"
+              "$ref": "#definitions/magnitude"
             }
           },
           "required": [
