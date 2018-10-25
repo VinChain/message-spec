@@ -1,0 +1,21 @@
+{
+  "$id": "v1/all.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "oneOf": [
+    {
+      "$ref": "telemetry-message.json"
+    },
+    {
+      "$ref": "location-message.json"
+    },
+    {
+      "$ref": "vin-message.json"
+    },
+    {
+      "$ref": "faultcodes-message.json"
+    },
+    {
+      "$ref": "providers/fmxxxx/io-message.json"
+    }
+  ]
+}

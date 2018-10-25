@@ -1,0 +1,20 @@
+{
+  "$id": "v1/faultcodes-message.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "const": "faultcodes"
+    },
+    "data": {
+      "type": "string",
+      "title": "Vehicle VIN code",
+      "minLength": 1
+    }
+  },
+  "title": "Vehicle fault codes message"
+}

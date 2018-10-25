@@ -1,0 +1,19 @@
+{
+  "oneOf": [
+    {
+      "$ref": "telemetry-message.json"
+    },
+    {
+      "$ref": "location-message.json"
+    },
+    {
+      "$ref": "vin-message.json"
+    },
+    {
+      "$ref": "faultcodes-message.json"
+    },
+    {
+      "$ref": "providers/fmxxxx/io-message.json"
+    }
+  ]
+}

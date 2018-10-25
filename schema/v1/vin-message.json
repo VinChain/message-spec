@@ -1,0 +1,20 @@
+{
+  "$id": "v1/vin-message.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "const": "vin"
+    },
+    "data": {
+      "type": "string",
+      "title": "Vehicle VIN code",
+      "minLength": 1
+    }
+  },
+  "title": "Vehicle VIN information"
+}

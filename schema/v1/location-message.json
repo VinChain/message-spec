@@ -1,0 +1,73 @@
+{
+  "$id": "v1/location-message.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "definitions": {
+    "location": {
+      "type": "object",
+      "title": "Location information",
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "title": "Device latitude in meters",
+          "description": "Latitude coordinate in degrees",
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "readOnly": true
+        },
+        "longitude": {
+          "title": "Device longitude in meters",
+          "description": "Longitude coordinate in degrees",
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "readOnly": true
+        },
+        "altitude": {
+          "title": "Device altitude in meters",
+          "description": "Altitude in meters",
+          "type": "number",
+          "readOnly": true
+        },
+        "speed": {
+          "title": "Speed of device in km/h",
+          "description": "Speed in km/h",
+          "type": "number",
+          "minimum": 0,
+          "readOnly": true
+        },
+        "course": {
+          "title": "Course of device movement",
+          "description": "Course in degrees from North clock vise",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        "satellites": {
+          "title": "Satellites number",
+          "description": "Number of tracked satellites",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ]
+    }
+  },
+  "properties": {
+    "type": {
+      "const": "location"
+    },
+    "data": {
+      "$ref": "#/definitions/location"
+    }
+  },
+  "title": "Geographical coordinates and meta-information message"
+}

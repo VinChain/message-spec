@@ -1,0 +1,28 @@
+{
+  "title": "Vehicle telemetry data",
+  "allOf": [{"$ref": "root.json"}],
+  "properties": {
+    "type": {
+      "const": "io"
+    },
+    "data": {
+      "$ref": "#/definitions/io"
+    },
+    "id": {
+      "$ref": "id.json"
+    }
+  },
+  "definitions": {
+    "io": {
+      "type": "object",
+      "title": "IO values",
+      "patternProperties": {
+        "^": {
+          "type": "number",
+          "title": "IO item"
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,18 @@
+{
+  "$id": "v1/providers/fmxxxx/id.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "properties": {
+    "provider": {
+      "const": "fmxxxx"
+    },
+    "imei": {
+      "type": "string",
+      "title": "FMxxxx IMEI",
+      "minLength": 15,
+      "maxLength": 15
+    }
+  },
+  "required": [
+    "imei"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Vehicle VIN information",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "const": "vin"
+    },
+    "data": {
+      "type": "string",
+      "title": "Vehicle VIN code",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "title": "Vehicle telemetry data",
+  "allOf": [{"$ref": "root.json"}],
+  "properties": {
+    "type": {
+      "const": "telemetry"
+    },
+    "data": {
+      "$ref": "#/definitions/telemetry"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "telemetry": {
+      "type": "object",
+      "title": "Telemetry items",
+      "additionalProperties": true,
+      "properties": {
+        "ignition": {
+          "type": "boolean",
+          "title": "Ignition"
+        },
+
+        "movement": {
+          "type": "boolean",
+          "title": "Movement status"
+        },
+
+        "speed": {
+          "type": "number",
+          "title": "ECU speed in km/h",
+          "minimum": 0
+        },
+
+        "engine_rpm": {
+          "type": "number",
+          "title": "Engine RPM"
+        },
+
+        "total_odometer": {
+          "type": "number",
+          "title": "Total odometer value in km",
+          "minimum": 0
+        },
+
+        "trip_odometer": {
+          "type": "number",
+          "minimum": 0,
+          "title": "Trip odometer in km"
+        },
+
+        "average_fuel_use": {
+          "type": "number",
+          "title": "Average fuel use in L/100km",
+          "minimum": 0
+        },
+
+        "fuel_level": {
+          "type": "number",
+          "title": "Fuel level in %",
+          "minimum": 0,
+          "maximum": 100
+        },
+
+        "accelerometer": {
+          "type": "object",
+          "title": "Accelerometer axis values in G",
+          "properties": {
+            "x": {
+              "title": "X-axis magnitude",
+              "$ref": "#/definitions/magnitude"
+            },
+            "y": {
+              "title": "Y-axis magnitude",
+              "$ref": "#/definitions/magnitude"
+            },
+            "z": {
+              "title": "Z-axis magnitude",
+              "$ref": "#/definitions/magnitude"
+            }
+          },
+          "required": ["x", "y", "z"],
+          "definitions": {
+            "magnitude": {
+              "title": "Magnitude in G",
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}

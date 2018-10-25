@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "provider": {
+      "const": "fmxxxx"
+    },
+    "imei": {
+      "type": "string",
+      "title": "FMxxxx IMEI",
+      "minLength": 15,
+      "maxLength": 15
+    }
+  },
+  "required": ["imei"]
+}

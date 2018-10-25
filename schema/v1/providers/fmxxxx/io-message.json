@@ -1,0 +1,33 @@
+{
+  "$id": "v1/providers/fmxxxx/io-message.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "definitions": {
+    "io": {
+      "type": "object",
+      "title": "IO values",
+      "patternProperties": {
+        "^": {
+          "type": "number",
+          "title": "IO item"
+        }
+      }
+    }
+  },
+  "properties": {
+    "type": {
+      "const": "io"
+    },
+    "data": {
+      "$ref": "#/definitions/io"
+    },
+    "id": {
+      "$ref": "id.json"
+    }
+  },
+  "title": "Vehicle telemetry data"
+}

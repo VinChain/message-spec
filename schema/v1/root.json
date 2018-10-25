@@ -1,0 +1,63 @@
+{
+  "$id": "v1/root.json",
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$ref": "../root.json"
+    }
+  ],
+  "definitions": {
+    "id": {
+      "type": "object",
+      "title": "Event emitter information",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "title": "Event emitter provider name",
+          "minLength": 1
+        }
+      },
+      "minProperties": 2,
+      "oneOf": [
+        {
+          "$ref": "providers/fmxxxx/id.json"
+        }
+      ],
+      "required": [
+        "provider"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "title": "Message type",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "number",
+      "title": "Event timestamp in milliseconds",
+      "minimum": 1540421516000
+    },
+    "data": {
+      "title": "Message data, various over different types"
+    }
+  },
+  "properties": {
+    "apiVersion": {
+      "const": 1
+    },
+    "id": {
+      "$ref": "#/definitions/id"
+    },
+    "timestamp": {
+      "$ref": "#/definitions/timestamp"
+    }
+  },
+  "required": [
+    "timestamp",
+    "id",
+    "type",
+    "data"
+  ],
+  "title": "v1 protocol message"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Vehicle fault codes message",
+  "allOf": [
+    {
+      "$ref": "root.json"
+    }
+  ],
+  "properties": {
+    "type": {
+      "const": "faultcodes"
+    },
+    "data": {
+      "type": "string",
+      "title": "Vehicle VIN code",
+      "minLength": 1
+    }
+  }
+}
