@@ -10,9 +10,11 @@
       "const": "faultcodes"
     },
     "data": {
-      "type": "string",
-      "title": "Vehicle VIN code",
-      "minLength": 1
+      "type": "array",
+      "title": "Vehicle fault codes",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }
