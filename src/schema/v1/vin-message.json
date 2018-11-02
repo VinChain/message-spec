@@ -10,9 +10,17 @@
       "const": "vin"
     },
     "data": {
-      "type": "string",
-      "title": "Vehicle VIN code",
-      "minLength": 1
+      "oneOf": [
+        {
+          "type": "string",
+          "title": "Vehicle VIN code",
+          "minLength": 1
+        },
+        {
+          "const": false,
+          "title": "Vehicle VIN code is not available"
+        }
+      ]
     }
   }
 }
