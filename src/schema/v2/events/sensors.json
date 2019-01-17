@@ -1,0 +1,652 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "oneOf": [
+    {
+      "title": "Signal inputs",
+      "oneOf": [
+        {
+          "title": "Digital input",
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "input"
+            },
+            "source": {
+              "const": "internal"
+            },
+            "subtype": {
+              "const": "digital"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "name",
+            "source",
+            "subtype",
+            "value"
+          ]
+        },
+        {
+          "title": "Analog input",
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "input"
+            },
+            "source": {
+              "const": "internal"
+            },
+            "subtype": {
+              "const": "analog"
+            },
+            "value": {
+              "type": "number"
+            },
+            "units": {
+              "const": "V"
+            }
+          },
+          "required": [
+            "name",
+            "source",
+            "subtype",
+            "value",
+            "units"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Signal outputs",
+      "oneOf": [
+        {
+          "title": "Digital output",
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "output"
+            },
+            "source": {
+              "const": "internal"
+            },
+            "subtype": {
+              "const": "digital"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "name",
+            "source",
+            "subtype",
+            "value"
+          ]
+        },
+        {
+          "title": "Analog output",
+          "type": "object",
+          "properties": {
+            "name": {
+              "const": "output"
+            },
+            "source": {
+              "const": "internal"
+            },
+            "subtype": {
+              "const": "analog"
+            },
+            "value": {
+              "type": "number"
+            },
+            "units": {
+              "const": "V"
+            }
+          },
+          "required": [
+            "name",
+            "source",
+            "subtype",
+            "value",
+            "units"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Accelerometer",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "accelerometer"
+        },
+        "value": {
+          "title": "Accelerometer axis magnitudes in G",
+          "type": "object",
+          "properties": {
+            "x": {
+              "title": "X-axis magnitude",
+              "type": "number"
+            },
+            "y": {
+              "title": "Y-axis magnitude",
+              "type": "number"
+            },
+            "z": {
+              "title": "Z-axis magnitude",
+              "type": "number"
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "z"
+          ]
+        },
+        "units": {
+          "const": "G"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Gyroscope",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "gyroscope"
+        },
+        "value": {
+          "title": "Gyroscope axis values",
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "z"
+          ]
+        },
+        "units": {
+          "const": "°/s"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Battery voltage info",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "battery voltage"
+        },
+        "subtype": {
+          "oneOf": [
+            {
+              "enum": [
+                "internal",
+                "vehicle"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "channel": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "examples": [
+            1,
+            "bank10"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "enum": [
+            "%",
+            "V"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Battery current info",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "battery current"
+        },
+        "subtype": {
+          "oneOf": [
+            {
+              "enum": [
+                "internal",
+                "vehicle"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "channel": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "examples": [
+            1,
+            "bank10"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "enum": [
+            "%",
+            "A"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Battery capacity level info",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "battery level"
+        },
+        "subtype": {
+          "type": "string"
+        },
+        "channel": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "examples": [
+            1,
+            "bank10"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Temperature info",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "temperature"
+        },
+        "subtype": {
+          "oneOf": [
+            {
+              "enum": [
+                "internal",
+                "engine",
+                "coolant",
+                "intake",
+                "ambient"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "channel": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "examples": [
+            1,
+            "bank10"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Humidity info",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "humidity"
+        },
+        "subtype": {
+          "type": "string"
+        },
+        "channel": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "examples": [
+            1,
+            "bank10"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Short Fuel Trim",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "short fuel trim"
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Fuel pressure",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel pressure"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "kPa"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Intake manifold absolute pressure",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "intake map"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "kPa"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Tachometer",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "tachometer"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "rpm"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Timing Advance",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "timing advance"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "°"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Mass Air Flow",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "maf"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "g/sec"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Throttle Position",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "Throttle Position"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Fuel Rail Pressure",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel reail pressure"
+        },
+        "subtype": {
+          "enum": ["relative", "direct", "absolute"]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "kPa"
+        }
+      },
+      "required": [
+        "name",
+        "subtype",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "EGR",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "egr"
+        },
+        "subtype": {
+          "enum": ["commanded", "error"]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "subtype",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Barometric Pressure",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "barometric pressure"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "kPa"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Control Module Voltage",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "control module voltage"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "V"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Fuel Injection Timing",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel injection timing"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "°"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    }
+  ]
+}

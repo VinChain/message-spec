@@ -2,12 +2,12 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "ES2017",
-    "outDir": "compiler"
+    "outDir": "../../compiler"
   },
   "src": [
     "src/compiler/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "../../node_modules"
   ]
 }

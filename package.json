@@ -3,10 +3,11 @@
   "description": "Message schema for queueing messages",
   "repository": "https://github.com/VinChain/message-spec.git",
   "version": "1.0.0",
-  "types": "typescript/index.d.ts",
+  "types": "types/index.d.ts",
   "private": true,
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build-typings": "tsc -p src/typings/tsconfig.json",
+    "build-compiler": "tsc -p src/compiler/tsconfig.json",
     "compileSchema": "node compiler/compiler.js compile -o dist -p http://example.com 'schema/**/*.json'"
   },
   "devDependencies": {

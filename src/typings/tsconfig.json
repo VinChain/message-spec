@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "declaration": true,
+    "declarationDir": "../../types",
+    "outDir": "../../types"
+  },
+  "src": [
+    "index.ts"
+  ],
+  "exclude": [
+    "../../node_modules"
+  ]
+}
