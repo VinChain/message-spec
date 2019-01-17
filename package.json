@@ -4,7 +4,6 @@
   "repository": "https://github.com/VinChain/message-spec.git",
   "version": "2.0.14",
   "types": "types/index.d.ts",
-  "private": true,
   "scripts": {
     "clean": "rm -rf schema types",
     "build-compiler": "tsc -p src/compiler/tsconfig.json",
