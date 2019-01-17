@@ -1,0 +1,191 @@
+{
+  "$id": "http://vinchain.io/v2/event.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "allOf": [
+    {
+      "title": "Event object schema",
+      "type": "object",
+      "properties": {
+        "event": {
+          "title": "Event type",
+          "type": "string",
+          "enum": [
+            "location",
+            "info"
+          ]
+        },
+        "priority": {
+          "title": "Event priority, optional",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        }
+      },
+      "required": [
+        "event",
+        "timestamp"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Location message definition",
+          "type": "object",
+          "properties": {
+            "event": {
+              "title": "Location event",
+              "const": "location"
+            },
+            "source": {
+              "title": "Source of the signal",
+              "type": "string",
+              "enum": [
+                "gps",
+                "glonass",
+                "lac"
+              ]
+            },
+            "latitude": {
+              "title": "Device latitude in meters",
+              "description": "Latitude coordinate in degrees",
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90,
+              "readOnly": true
+            },
+            "longitude": {
+              "title": "Device longitude in meters",
+              "description": "Longitude coordinate in degrees",
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180,
+              "readOnly": true
+            },
+            "altitude": {
+              "title": "Device altitude in meters",
+              "description": "Altitude in meters",
+              "type": "number",
+              "readOnly": true
+            },
+            "speed": {
+              "title": "Speed of device in km/h",
+              "description": "Speed in km/h",
+              "type": "number",
+              "minimum": 0,
+              "readOnly": true
+            },
+            "course": {
+              "title": "Course of device movement",
+              "description": "Course in degrees from North clock vise",
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMaximum": 360
+            },
+            "satellites": {
+              "title": "Satellites number",
+              "description": "Number of tracked satellites",
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "longitude",
+            "latitude",
+            "source"
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "title": "Info message definition",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "title": "Information unit name",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Description of information unit",
+                  "type": "string"
+                },
+                "source": {
+                  "oneOf": [
+                    {
+                      "title": "Information unit source",
+                      "enum": [
+                        "internal",
+                        "external",
+                        "ble",
+                        "rs232",
+                        "lvcan",
+                        "obd"
+                      ]
+                    },
+                    {
+                      "title": "Other source types",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "subtype": {
+                  "title": "Information unit subtype",
+                  "type": "string"
+                },
+                "channel": {
+                  "title": "Optional unit channel",
+                  "type": [
+                    "number",
+                    "string"
+                  ]
+                },
+                "value": {
+                  "title": "Data value",
+                  "type": [
+                    "number",
+                    "string",
+                    "boolean",
+                    "array",
+                    "object"
+                  ]
+                },
+                "units": {
+                  "title": "Value units",
+                  "type": "string"
+                },
+                "error": {
+                  "title": "Error message if exists",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "source",
+                "value"
+              ]
+            },
+            {
+              "$ref": "./events/device.json"
+            },
+            {
+              "$ref": "./events/vehicle.json"
+            },
+            {
+              "$ref": "./events/sensors.json"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "timestamp": {
+      "type": "number",
+      "title": "Event timestamp in milliseconds",
+      "minimum": 1540421516000
+    }
+  }
+}

@@ -1,9 +1,12 @@
 {
-  "$id": "all.json",
+  "$id": "http://vinchain.io/all.json",
   "$schema": "http://json-schema.org/draft-06/schema",
   "oneOf": [
     {
       "$ref": "v1/all.json"
+    },
+    {
+      "$ref": "v2/root.json"
     }
   ]
 }

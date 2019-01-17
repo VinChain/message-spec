@@ -1,0 +1,314 @@
+{
+  "$id": "http://vinchain.io/v2/events/vehicle.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "oneOf": [
+    {
+      "title": "Fuel Used information",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel used"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "L"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Fuel rate information",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel rate"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "enum": [
+            "L/h",
+            "L/100km"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Fuel level",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "fuel level"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "oneOf": [
+            {
+              "const": "%",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "const": "L"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Odometer",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "odometer"
+        },
+        "subtype": {
+          "enum": [
+            "total",
+            "trip"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "km"
+        }
+      },
+      "required": [
+        "name",
+        "subtype",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Speed",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "speed"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "km/h"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Driving Direction",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "driving direction"
+        },
+        "value": {
+          "enum": [
+            "unknown",
+            "forward",
+            "backward"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Ignition flag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "ignition"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Movement flag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "movement"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Number of DTC",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "dtc count"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "VIN code",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "vin"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "DTC codes",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "dtc codes"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Distance Since Codes Clear",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "distance since codes clear"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "km"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Engine Load",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "engine load"
+        },
+        "subtype": {
+          "enum": [
+            "calculated",
+            "absolute"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Run Time Since Engine Start",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "run time since engine start"
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "const": "s"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Immobilizer",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "immobilizer"
+        },
+        "value": {
+          "enum": [
+            "not connected",
+            "connected",
+            "authorized"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    }
+  ]
+}

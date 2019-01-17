@@ -1,5 +1,5 @@
 {
-  "$id": "v1/faultcodes-message.json",
+  "$id": "http://vinchain.io/v1/faultcodes-message.json",
   "$schema": "http://json-schema.org/draft-06/schema",
   "allOf": [
     {

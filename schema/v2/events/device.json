@@ -1,0 +1,185 @@
+{
+  "$id": "http://vinchain.io/v2/events/device.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "oneOf": [
+    {
+      "title": "ICCID",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "iccid"
+        },
+        "source": {
+          "const": "internal"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "source",
+        "value"
+      ]
+    },
+    {
+      "title": "Eco score",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "eco score"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "GSM signal value",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "gsm signal"
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "units": {
+          "const": "%"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "units"
+      ]
+    },
+    {
+      "title": "Charger connected flag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "charger connected"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Alarm flag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "alarm"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Towing flag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "towing"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Crash detection",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "crash detection"
+        },
+        "value": {
+          "enum": [
+            "crash",
+            "limited calibrated",
+            "limited not calibrated",
+            "full calibrated",
+            "full not calibrated"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Jamming",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "jamming"
+        },
+        "value": {
+          "enum": [
+            "start",
+            "stop"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Idling",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "Idling"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "title": "Unplug",
+      "type": "object",
+      "properties": {
+        "name": {
+          "const": "unplug"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    }
+  ]
+}

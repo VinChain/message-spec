@@ -2,6 +2,9 @@
   "oneOf": [
     {
       "$ref": "v1/all.json"
+    },
+    {
+      "$ref": "v2/root.json"
     }
   ]
 }

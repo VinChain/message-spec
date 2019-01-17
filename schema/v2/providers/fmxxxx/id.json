@@ -1,6 +1,6 @@
 {
-  "$id": "http://vinchain.io/v1/providers/fmxxxx/id.json",
-  "$schema": "http://json-schema.org/draft-06/schema",
+  "$id": "http://vinchain.io/v2/providers/fmxxxx/id.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "properties": {
     "provider": {
       "const": "fmxxxx"
@@ -14,5 +14,6 @@
   },
   "required": [
     "imei"
-  ]
+  ],
+  "type": "object"
 }

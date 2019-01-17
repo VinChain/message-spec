@@ -1,0 +1,40 @@
+{
+  "$id": "http://vinchain.io/v2/root.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "additionalProperties": false,
+  "definitions": {
+    "id": {
+      "type": "object",
+      "title": "Event emitter information",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "title": "Event emitter provider name",
+          "minLength": 1
+        }
+      },
+      "minProperties": 2,
+      "oneOf": [
+        {
+          "$ref": "providers/fmxxxx/id.json"
+        }
+      ],
+      "required": [
+        "provider"
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/id"
+    },
+    "events": {
+      "type": "array",
+      "title": "Events array",
+      "items": {
+        "$ref": "./event.json"
+      }
+    }
+  },
+  "type": "object"
+}

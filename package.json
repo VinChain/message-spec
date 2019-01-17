@@ -6,9 +6,10 @@
   "types": "types/index.d.ts",
   "private": true,
   "scripts": {
-    "build-typings": "tsc -p src/typings/tsconfig.json",
+    "clean": "rm -rf schema types",
     "build-compiler": "tsc -p src/compiler/tsconfig.json",
-    "compileSchema": "node compiler/compiler.js compile -o dist -p http://example.com 'schema/**/*.json'"
+    "build-schema": "DEBUG=* bin/schema-compiler compile -o schema -p http://vinchain.io 'src/schema/**/*.json'",
+    "build-typings": "tsc -p src/typings/tsconfig.json"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",

@@ -1,5 +1,5 @@
 {
-  "$id": "v1/telemetry-message.json",
+  "$id": "http://vinchain.io/v1/telemetry-message.json",
   "$schema": "http://json-schema.org/draft-06/schema",
   "additionalProperties": false,
   "allOf": [
